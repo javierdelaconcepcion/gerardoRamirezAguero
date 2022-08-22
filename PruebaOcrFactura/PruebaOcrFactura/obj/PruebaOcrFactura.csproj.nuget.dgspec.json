@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\gerardiweb\\source\\repos\\PruebaOcrFactura\\PruebaOcrFactura\\PruebaOcrFactura.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\gerardiweb\\source\\repos\\PruebaOcrFactura\\PruebaOcrFactura\\PruebaOcrFactura.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gerardiweb\\source\\repos\\PruebaOcrFactura\\PruebaOcrFactura\\PruebaOcrFactura.csproj",
+        "projectName": "PruebaOcrFactura",
+        "projectPath": "C:\\Users\\gerardiweb\\source\\repos\\PruebaOcrFactura\\PruebaOcrFactura\\PruebaOcrFactura.csproj",
+        "packagesPath": "C:\\Users\\gerardiweb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gerardiweb\\source\\repos\\PruebaOcrFactura\\PruebaOcrFactura\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gerardiweb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Azure.AI.FormRecognizer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Azure.Core": {
+              "target": "Package",
+              "version": "[1.25.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
