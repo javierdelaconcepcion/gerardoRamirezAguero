@@ -1,0 +1,180 @@
+﻿@model ProyectoFinal.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <title>ESI Valladolid</title>
+    <meta name="keywords" content="ESI Valladolid" />
+    <meta name="description" content="ESI Valladolid">
+    <meta name="author" content="ESI Valladolid">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font CSS (Via CDN) -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="~/assets/skin/default_skin/css/theme.css">
+
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css" href="~/assets/admin-tools/admin-forms/css/admin-forms.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/assets/img/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+     <![endif]-->
+
+    <script src="https://use.fontawesome.com/9c5fcee965.js"></script>
+
+    <style> 
+    body {
+            background-image: url('/assets/img/logos/entradaESI.JPG');
+            background-color: #cccccc;
+            background-size:cover;
+            background-repeat:no-repeat
+         }
+
+    .parent{
+        display: grid;
+        height: 400px;
+        align-content: center;    /* aligns vertically */
+        justify-content: center;  /* aligns horizontally */
+    }
+
+    .child{
+        width: 700px;
+        height: 130px;
+        text-align: center;
+        padding: 20px;
+    }
+    </style>
+
+</head>
+
+@*class="external-page sb-l-c sb-r-c onload-check sb-l-m mobile-view tray-rescale"*@
+
+@*class="external-page sb-l-c sb-r-c"*@
+
+<body  style="min-height: 0px;">
+    
+    <div class="parent">
+
+        <div class="admin-form theme-info mw500 child" id="login">
+                    <!-- Login Panel/Form -->
+                    <div class="panel mt30 mb25" style="background-color:white">
+
+                        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "formularioLogin", @style = "" }))
+                        {
+                        <div class="panel-body bg-light p25 pb15">
+                            @Html.AntiForgeryToken()
+                            <!-- Social Login Buttons -->
+                            <div class="section row">
+                                <div class="col-md-12" style="margin-left:-5px">
+                                    <img src="~/assets/img/logos/logoLoginEsi.png" width="420px" />
+                                </div>
+
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="section-divider mv30">
+
+                            </div>
+
+                            <div class="section">
+                                <label for="username" class="field-label text-muted fs18 mb10" style="text-align:left;font-weight: bold">Usuario</label>
+                                <label for="username" class="field prepend-icon">
+                                    <input type="text" name="Dni" id="username" class="gui-input" style="font-weight: bold;"  placeholder="Introduzca su Usuario" required>
+                                    <label for="username" class="field-icon">
+                                        <i class="fa fa-user"></i>
+                                    </label>
+                                </label>
+                                @Html.ValidationMessage("Dni", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="section">
+                                <label for="username" class="field-label text-muted fs18 mb10" style="text-align:left;font-weight: bold">Password</label>
+                                <label for="password" class="field prepend-icon">
+                                    <input type="password" name="Clave" id="password" class="gui-input"  style="font-weight: bold;" placeholder="Introduzca su Password" required>
+                                    <label for="password" class="field-icon">
+                                        <i class="fa fa-lock"></i>
+                                    </label>
+                                </label>
+                                @Html.ValidationMessage("Clave", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                            <div class="panel-footer clearfix text-center">
+                                <button type="submit" class="button btn-primary">Acceder</button>
+                                <a href="@Url.Action("Recordar","login")"><button type="button" id="botonRecordar" class="button btn-Info">Recordar</button></a> 
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel"><span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>&nbsp;&nbsp;Upss hay algo que no es correcto <i class="bi bi-exclamation-lg"></i><i class="bi bi-exclamation-lg"></i></h2>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>*@
+                </div>
+                <div id="listadoErrores" class="modal-body text-danger mn">
+
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: Main -->
+    <!-- BEGIN: PAGE SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+    <script src="~/vendor/plugins/canvasbg/canvasbg.js"></script>
+
+    <!-- Theme Javascript -->
+    <script src="~/assets/js/utility/utility.js"></script>
+    <script src="~/assets/js/demo/demo.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+    <!-- Page Javascript -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+
+            
+            CanvasBG.init({
+              Loc: {
+                x: window.innerWidth / 2,
+                y: window.innerHeight / 3.3
+              },
+            });
+
+
+
+        });
+    </script>
+
+    <!-- END: PAGE SCRIPTS -->
+
+</body>
+
+</html>
